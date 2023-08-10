@@ -5,29 +5,6 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    long long int solve(int *coins, int n,int i, int sum,int curr,vector<vector<long long int>>&dp)
-    {
-        if(curr>sum)
-        {
-           return 0 ;
-        }
-        if(i>=n)
-        {
-            return 0 ;
-            
-        }
-        if(curr==sum)
-        {
-           return 1;
-        }
-        if(dp[i][sum]!=-1)
-        {
-            return dp[i][sum];
-        }
-        long long int ans1=solve(coins,n,i,sum,curr+coins[i],dp);
-        long long int ans2=solve(coins,n,i+1,sum,curr,dp);
-        return   dp[i][sum]=ans1+ans2;
-    }
     long long int count(int arr[], int n, int T) {
 
         // code here.

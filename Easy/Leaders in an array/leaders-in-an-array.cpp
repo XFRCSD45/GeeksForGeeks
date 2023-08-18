@@ -13,25 +13,17 @@ class Solution{
     public:
     vector<int> leaders(int a[], int n){
         // Code here
-        vector<int>maxi(n,0);
-        maxi[n-1]=a[n-1];
-        for(int i=n-2;i>=0;i--)
-        {
-            if(a[i]>maxi[i+1])
-            {
-                maxi[i]=a[i];
-            }
-            else
-            {
-                maxi[i]=maxi[i+1];
-            }
-        }
+        int maxi=a[n-1];
         vector<int>ans;
-        for(int i=0;i<n;i++)
+        for(int i=n-1;i>=0;i--)
         {
-            if(a[i]==maxi[i])
-            ans.push_back(a[i]);
+            if(a[i]>=maxi)
+            {
+                ans.push_back(a[i]);
+                maxi=a[i];
+            }
         }
+        reverse(ans.begin(), ans.end());
         return ans;
         
     }

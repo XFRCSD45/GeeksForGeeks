@@ -111,16 +111,15 @@ class Solution{
   public:
     // The given root is the root of the Binary Tree
     // Return the root of the generated BST
-    void solve(Node *root, vector<int>&vec)
+    void solve(Node *root, vector<int>&vec, int &i)
     {
         if(root==NULL)
         {
             return;
         }
-        solve(root->left,vec);
-        root->data=vec[0];
-        vec.erase(vec.begin());
-        solve(root->right, vec);
+        solve(root->left,vec,i);
+        root->data=vec[i++];
+        solve(root->right, vec,i);
     }
     void inorderTraverse(Node* root, vector<int>&vec)
     {
@@ -138,7 +137,8 @@ class Solution{
          vector<int>vec;
          inorderTraverse(root,vec);
          sort(vec.begin(), vec.end());
-         solve(root,vec);
+         int x=0;
+         solve(root,vec,x);
          return root;
     }
 };

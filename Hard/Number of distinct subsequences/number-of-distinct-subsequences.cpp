@@ -7,11 +7,11 @@ using namespace std;
 //User function template for C++
 
 class Solution{
-
-  public:
-int distinctSubsequences(string s)
-{
-     int mod = 1000000007;
+  public:	
+	int distinctSubsequences(string s)
+	{
+	    // Your code goes here
+	    int mod = 1000000007;
 	    int n = s.length();
 	    vector<int>dp(n+1);
 	    dp[0] =1;
@@ -27,7 +27,7 @@ int distinctSubsequences(string s)
 	        mp[ch] =i;
 	    }
 	    return dp[n];
-}
+	}
 };
 
 //{ Driver Code Starts.

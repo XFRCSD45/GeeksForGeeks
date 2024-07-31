@@ -31,18 +31,25 @@ public:
                   
                   for(int i=0;i<del.size();i++)
               {
-                  if(m[del[i]])
-                  {
+                 
                       
                   m.erase(del[i]);
-                  }
-              }
                   
+              }
+                  del.clear();
               }
               string word = temp[temp.size()-1];
               if(word==e)
               {
+                  if(ans.size()==0)
+                  {
+                      
                   ans.push_back(temp);
+                  }
+                  else if(ans[0].size()==temp.size())
+                  {
+                      ans.push_back(temp);
+                  }
               }
               for(int i=0;i<word.size();i++)
               {
